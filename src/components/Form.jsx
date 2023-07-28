@@ -1,5 +1,5 @@
-import { useEffect, useReducer } from "react";
-import GetImage from "./ApiCall";
+import { useEffect, useState, useReducer } from "react";
+import PastResults from "./PastResults";
 
 const formReducer = (state, action) => {
     switch (action.type) {
@@ -37,6 +37,21 @@ function Form() {
   };
 
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const [past, setPast] = useState([]);
+
+
+  // LOCAL STORAGE 
+
+  useEffect(()=>{
+    const addToLocalStorage = () => {
+        let prevHistory = JSON.parse(localStorage.getItem('pastimages')) || [];
+        if(state.id !== 0) {let newHistory = [state.id, ...prevHistory];
+            const limitedHistory = newHistory.slice(0, 5);
+            localStorage.setItem('pastimages', JSON.stringify(limitedHistory))}
+        
+    }
+    addToLocalStorage()
+    },[state.id])
 
 
 // FUNCTION TO GENERATE A NEW IMAGE
@@ -60,6 +75,9 @@ function Form() {
     } else {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${newId}/${state.width}/${state.height}` })
     }
+    let newPast = [newId, ...past];
+    const limitedPast = newPast.slice(0, 5);
+    setPast(limitedPast)
 
     console.log(state.url)
     console.log('Width:', state.width, 'Height:', state.height, 'Id:', state.id, 'Is Checked:', state.isChecked, 'Blur:', state.sliderLevel, 'Selected Option:', state.selectedOption);
@@ -88,7 +106,10 @@ function Form() {
   }
 
 
-
+  const pastApply = (id) => {
+    dispatch( { type: 'URL_CHANGE', payload: `https://picsum.photos/id/${id}/${state.width}/${state.height}` } )
+    dispatch( {type: 'ID_CHANGE', payload: id} )
+  }
 
 
     return ( 
@@ -108,7 +129,7 @@ function Form() {
                             
                         </div>
                         <div className="flex flex-column gap-4">
-                            <label htmlFor="small-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Height</label>
+                            <label htmlFor="small-input" className="block mb-2 text-sm font-medium text-gray-900 ">Height</label>
                             <input type="number" 
                             id="small-input" 
                             className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " 
@@ -179,6 +200,8 @@ function Form() {
                         Apply to this image
                     </button>
                 <div><img src={state.url} alt=""  /></div>
+
+                <PastResults past={past} click={pastApply}/>
             </div>
 
      );
