@@ -9,7 +9,6 @@ console.log(state)
           const response = await fetch(`https://picsum.photos/${width}/${height}`);
           const data = await response.json();
           console.log('API Response:', data);
-          // Perform any other actions with the API response data here.
         } catch (error) {
           console.error('Error fetching data:', error);
         }
