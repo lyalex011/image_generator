@@ -2,7 +2,7 @@ import Form from "./Form";
 
 function Main() {
     return ( 
-        <main className="h-screen p-10">
+        <main className="px-3">
             <Form/>
         </main>
      );
