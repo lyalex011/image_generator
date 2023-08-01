@@ -1,5 +1,9 @@
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState, useReducer, useContext } from "react";
+import copy from "copy-to-clipboard";
 import PastResults from "./PastResults";
+import { UserContext } from "../App";
+import excludeNumbers from "./ExcludeNumbers";
+import { useRef } from "react";
 
 const formReducer = (state, action) => {
     switch (action.type) {
@@ -26,18 +30,29 @@ const formReducer = (state, action) => {
 
 function Form() {
 
+let used_id = useContext(UserContext)
+const imageRef = useRef(null);
+
   const initialState = {
     width: '300',
     height: '300',
     isChecked: false,
     sliderLevel: 0,
     selectedOption: '.jpg',
-    id: 0,
-    url: 'https://picsum.photos/300/300'
+    id: used_id,
+    url: `https://picsum.photos/id/${used_id}/300/300`
   };
+
+  
 
   const [state, dispatch] = useReducer(formReducer, initialState);
   const [past, setPast] = useState([]);
+  const [isCopied, setIsCopied] = useState(false);
+  const [isUsed, setIsUsed] = useState(true);
+
+  useEffect(()=>{
+    dispatch({type: 'ID_CHANGE', payload: used_id})
+  },[])
 
 
   // LOCAL STORAGE 
@@ -54,33 +69,48 @@ function Form() {
     },[state.id])
 
 
+// FUNCTION TO GENERATE A NEW ID
+
+    function generateRandomNumber() {
+        while (true) {
+          const randomNumber = Math.floor(Math.random() * 1085)
+      
+          if (!excludeNumbers.includes(randomNumber)) {
+            return randomNumber;
+          }
+        }
+      }
+
+    
 // FUNCTION TO GENERATE A NEW IMAGE
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let newId = Math.floor(Math.random() * 1085);
+    let newId = generateRandomNumber();
     dispatch({type: 'ID_CHANGE', payload: newId})
-
-    console.log(newId)
     
     if(state.isChecked && state.sliderLevel === 0) {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${newId}/${state.width}/${state.height}?grayscale` })
     }
+    
     else if (state.isChecked && state.sliderLevel !== 0) {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${newId}/${state.width}/${state.height}?grayscale&blur=${state.sliderLevel}` })
     }
+    
     else if (!state.isChecked && state.sliderLevel !== 0) {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${newId}/${state.width}/${state.height}?blur=${state.sliderLevel}` })
-    } else {
+    } 
+     else {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${newId}/${state.width}/${state.height}` })
     }
+
     let newPast = [newId, ...past];
     const limitedPast = newPast.slice(0, 5);
     setPast(limitedPast)
+    setIsCopied(false);
 
-    console.log(state.url)
-    console.log('Width:', state.width, 'Height:', state.height, 'Id:', state.id, 'Is Checked:', state.isChecked, 'Blur:', state.sliderLevel, 'Selected Option:', state.selectedOption);
+    
   };
 
 
@@ -88,33 +118,72 @@ function Form() {
 
   const handleApply = (evt) => {
     evt.preventDefault();
-
-    console.log(state.id)
+    
+    if (!isUsed) {
+        dispatch({type: 'ID_CHANGE', payload: used_id})
+        setIsUsed(false)
+    }
+    
+    
 
     if(state.isChecked && state.sliderLevel === 0) {
-        dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?grayscale` })
+        dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?grayscale${state.selectedOption}` })
     }
+    
     else if (state.isChecked && state.sliderLevel !== 0) {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?grayscale&blur=${state.sliderLevel}` })
     }
+    
     else if (!state.isChecked && state.sliderLevel !== 0) {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?blur=${state.sliderLevel}` })
-    } else {
+    } 
+    else {
         dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}` })
     }
 
+    setIsCopied(false);
+
   }
 
+  // PAST RESULTS
 
   const pastApply = (id) => {
     dispatch( { type: 'URL_CHANGE', payload: `https://picsum.photos/id/${id}/${state.width}/${state.height}` } )
     dispatch( {type: 'ID_CHANGE', payload: id} )
   }
 
+// COPY TO CLIPBOARD
+
+const handleCopy = () => {
+    if(state.selectedOption === '.webp') {
+        let newUrl = state.url + state.selectedOption
+        copy(newUrl)
+        setIsCopied(true);
+    }
+    else copy(state.url)
+    setIsCopied(true);
+
+  };
+
+
+
+// DOWNLOD FILE
+
+  const openInNewTab = (url) => {
+
+    if(state.selectedOption === '.webp') {
+        let newUrl = url + state.selectedOption
+        window.open(newUrl, "_blank", "noreferrer");
+    }
+    else window.open(url, "_blank", "noreferrer");
+  };
+
+
+
 
     return ( 
         <div> 
-            <div className="flex flex-row flex-wrap justify-center w-full">
+            <div className="flex flex-row flex-wrap justify-center w-full h-full">
                 
                 <div className="flex  justify-center w-22 mr-0 sm:mr-2 bg-white border border-gray-200 rounded-lg shadow px-8 pt-8 mt-6">
                     <form onSubmit={handleSubmit}>
@@ -210,8 +279,7 @@ function Form() {
                                     </div>
                                 </li>
                             </ul>
-                            <div className="hidden p-4 peer-checked/jpg:block">Use jpg for your design project.</div>
-                            <div className="hidden p-4 peer-checked/webp:block">Use webp for websites.</div>
+                            
 
 
                             <fieldset>
@@ -239,8 +307,8 @@ function Form() {
                                     />
                                     <label htmlFor="webp" className=" hidden ml-1 peer-checked/webp:text-sky-500">.webp</label>
                                     
-                                        <div className="hidden p-4 peer-checked/jpg:block">jpg is a widely used compressed image</div>
-                                        <div className="hidden p-4 peer-checked/webp:block">webp can be up to 34% smaller than jpg</div>
+                                        <div className="hidden text-center p-4 peer-checked/jpg:block">jpg is a widely used compressed image <br /> and recommended for most projects</div>
+                                        <div className="hidden text-center p-4 peer-checked/webp:block">webp can be up to 34% smaller<br />but doesn't work with blur settings</div>
 
                                 </div>
                                 
@@ -266,20 +334,21 @@ function Form() {
 
 
                 <div className="flex flex-col justify-center w-22 bg-white border border-gray-200 rounded-lg shadow px-8 py-3 mr-0 sm:mr-2 mt-6 sm:mt-6 md:mt-6">
-                    <div className="flex justify-center w-full h-full px-2 pt-4"><img className="" src={state.url} alt=""  /></div>
+                    <div className="flex justify-center w-full h-full px-2 pt-4"><img  className="" src={state.url} alt=""  /></div>
                     <div className="flex justify-center">
-                            <button type="submit" className="border-b-4 border-gray-400 mt-4 mb-8 bg-gray-300 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                            <button role="link"
+                                onClick={() => openInNewTab(state.url)} className="border-b-4 border-gray-400 mt-10 mb-8 bg-gray-300 hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                                <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
                                 <span>Download</span>
                             </button>
-                            <button onClick={handleApply}  className="ml-4 mt-4 mb-8 bg-cyan-500 hover:bg-cyan-300 text-white font-bold py-2 px-4 border-b-4 border-cyan-600 hover:border-cyan-400 rounded">
-                                Copy 
+                            <button onClick={handleCopy}  className={isCopied ? "ml-4 mt-10 mb-8 bg-green-500  text-white font-bold py-2 px-4 border-b-4 border-green-600  rounded" : "ml-4 mt-10 mb-8 bg-cyan-500 hover:bg-cyan-300 text-white font-bold py-2 px-4 border-b-4 border-cyan-600 hover:border-cyan-400 rounded"}>
+                            {isCopied ? 'Link copied!' : 'Copy link'}
                             </button>
                     </div>
                 </div>
             </div>
             
-            
+            <h3 className="flex justify-center text-center text-lg font-medium mt-4 text-gray-800">Your last results:</h3>
                 <PastResults past={past} click={pastApply}/>
             </div>
 

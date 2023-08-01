@@ -19,7 +19,8 @@ function PastResults(props) {
       } 
 
     return ( 
-        <div className="flex flex-wrap gap-8 mt-12 justify-center">
+        <div className="flex flex-wrap gap-8 mt-5 justify-center">
+          
             {dataFromLocalStorage.reverse().map((item, index) => (
                 <div key={index} className="flex">
                     <div value={item} onClick={(e) => handleClick(item)} className=" w-28 md:w-28 justify-center items-center bg-white shadow-lg rounded-lg flex flex-col transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:duration-300 hover:bg-cyan-300 cursor-pointer">

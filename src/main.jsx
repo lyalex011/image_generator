@@ -5,6 +5,9 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <div className='flex flex-col h-screen justify-between'>
     <App />
+    </div>
+    
   </React.StrictMode>,
 )
