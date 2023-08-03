@@ -195,7 +195,7 @@ const handleCopy = () => {
                                 <input 
                                 type="number" 
                                 id="small-input" 
-                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
                                 required
                                 value={state.width}
                                 onChange={(e) => dispatch({ type: 'SET_WIDTH', payload: e.target.value })}
@@ -206,7 +206,7 @@ const handleCopy = () => {
                                 <label htmlFor="small-input" className="block mt-2 text-sm font-medium text-gray-900 ">Height:</label>
                                 <input type="number" 
                                 id="small-input" 
-                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " 
+                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
                                 required
                                 value={state.height}
                                 onChange={(e) => dispatch({ type: 'SET_HEIGHT', payload: e.target.value })}
@@ -219,7 +219,7 @@ const handleCopy = () => {
                             id="checkbox-1" 
                             type="checkbox" 
                             value="" 
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" 
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500   focus:ring-2 " 
                             checked={state.isChecked}
                             onChange={() => dispatch({ type: 'B&W_CHECKBOX' })}
                             />
@@ -242,38 +242,38 @@ const handleCopy = () => {
                         <div className="flex flex-col items-center ">
                             <legend className="ml-2 text-sm font-medium text-gray-900 mt-4">File format</legend>
                             <ul className="flex flex-row mt-4">
-                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg ">
                                     <div className="relative flex items-start w-full">
                                     <div className="flex items-center h-5">
                                         <input 
-                                        id="hs-horizontal-list-group-item-radio-1" 
+                                        id="jpg" 
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
-                                        className="border-gray-200 rounded-full " 
+                                        className="border-gray-200 rounded-full peer/jpg" 
                                         checked={state.selectedOption === '.jpg'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.jpg' })} 
                                         />
                                     </div>
-                                    <label htmlFor="hs-horizontal-list-group-item-radio-1" className="ml-3 block w-full text-sm text-gray-600 dark:text-gray-500">
+                                    <label htmlFor="jpg" className="ml-3 block w-full text-sm text-gray-600 ">
                                         .jpeg
                                     </label>
                                     </div>
                                 </li>
 
-                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg ">
                                     <div className="relative flex items-start w-full">
                                     <div className="flex items-center h-5">
                                         <input 
-                                        id="hs-horizontal-list-group-item-radio-2" 
+                                        id="webp" 
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
-                                        className="border-gray-200 rounded-full"
+                                        className="border-gray-200 rounded-full peer/webp"
                                         checked={state.selectedOption === '.webp'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.webp' })} 
                                         
                                         />
                                     </div>
-                                    <label htmlFor="hs-horizontal-list-group-item-radio-2" className="ml-3 block w-full text-sm text-gray-600 dark:text-gray-500">
+                                    <label htmlFor="webp" className="ml-3 block w-full text-sm text-gray-600 ">
                                         .webp
                                     </label>
                                     </div>
@@ -294,7 +294,7 @@ const handleCopy = () => {
                                     checked={state.selectedOption === '.jpg'}
                                     onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.jpg' })} 
                                     />
-                                    <label htmlFor="jpg" className="hidden ml-1 peer-checked/jpg:text-sky-500">.jpg</label>
+                                    
 
                                     <input 
                                     value=".webp" 
@@ -305,7 +305,7 @@ const handleCopy = () => {
                                     checked={state.selectedOption === '.webp'}
                                     onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.webp' })} 
                                     />
-                                    <label htmlFor="webp" className=" hidden ml-1 peer-checked/webp:text-sky-500">.webp</label>
+                                    
                                     
                                         <div className="hidden text-center p-4 peer-checked/jpg:block">jpg is a widely used compressed image <br /> and recommended for most projects</div>
                                         <div className="hidden text-center p-4 peer-checked/webp:block">webp can be up to 34% smaller<br />but doesn't work with blur settings</div>
