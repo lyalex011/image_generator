@@ -59,13 +59,13 @@ function Header() {
                     >
                         <ul className="items-center justify-center mt-8 space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li >
-                            <Link className="mr-10  font-medium hover:text-blue-500" to="/">Home</Link>
+                            <Link className="mr-10  font-medium hover:text-blue-500" to="/" onClick={() => {setNavbar(false)}}>Home</Link>
                             </li>
                             <li >
-                            <Link className="mr-10 font-medium hover:text-blue-500" to="/photolibrary">All photos</Link>
+                            <Link className="mr-10 font-medium hover:text-blue-500" to="/photolibrary" onClick={() => {setNavbar(false)}}>All photos</Link>
                             </li>
                             <li>
-                            <Link className="font-medium hover:text-blue-500" to="/about">About</Link>
+                            <Link className="font-medium hover:text-blue-500" to="/about" onClick={() => {setNavbar(false)}}>About</Link>
                             </li>
                             
                             
