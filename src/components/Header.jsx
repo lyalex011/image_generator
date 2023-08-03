@@ -6,14 +6,14 @@ function Header() {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-white shadow-lg top-0 sticky">
-            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <nav className="w-full bg-white shadow-lg top-0 sticky z-40">
+            <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 z-40">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         
                         <Link className="mb-0" to="/"><img className="w-auto h-10" src="/quickpiclogo2.png" alt="logo" /></Link>
                         
-                        <div className="md:hidden">
+                        <div className="md:hidden z-40">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                                 onClick={() => setNavbar(!navbar)}
@@ -34,7 +34,7 @@ function Header() {
                                 ) : (
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="w-6 h-6"
+                                        className="w-6 h-6 z-40"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -53,7 +53,7 @@ function Header() {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 mb-8 md:block md:pb-0 md:mt-0 ${
+                        className={`flex-1 justify-self-center pb-3 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 ${
                             navbar ? "block" : "hidden"
                         }`}
                     >
