@@ -128,7 +128,7 @@ const imageRef = useRef(null);
     console.log(state.url)
 
     if(state.isChecked && state.sliderLevel === 0) {
-        dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?grayscale${state.selectedOption}` })
+        dispatch({ type: 'URL_CHANGE', payload: `https://picsum.photos/id/${state.id}/${state.width}/${state.height}?grayscale` })
     }
     
     else if (state.isChecked && state.sliderLevel !== 0) {

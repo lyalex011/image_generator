@@ -11,11 +11,11 @@ function Header() {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         
-                        <Link className="mt-2 sm:mt-0 mb-0" to="/"><img className="w-auto h-10" src="/quickpiclogo2.png" alt="logo" /></Link>
+                        <Link className="mb-0" to="/"><img className="w-auto h-10" src="/quickpiclogo2.png" alt="logo" /></Link>
                         
                         <div className="md:hidden z-40 ">
                             <button
-                                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border mt-2 sm:mt-0"
+                                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border "
                                 onClick={() => setNavbar(!navbar)}
                             >
                                 {navbar ? (
