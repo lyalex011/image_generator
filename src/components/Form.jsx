@@ -195,7 +195,7 @@ const handleCopy = () => {
                                 <input 
                                 type="number" 
                                 id="small-input" 
-                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
+                                className="block w-20 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
                                 required
                                 value={state.width}
                                 onChange={(e) => dispatch({ type: 'SET_WIDTH', payload: e.target.value })}
@@ -206,7 +206,7 @@ const handleCopy = () => {
                                 <label htmlFor="small-input" className="block mt-2 text-sm font-medium text-gray-900 ">Height:</label>
                                 <input type="number" 
                                 id="small-input" 
-                                className="block w-16 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
+                                className="block w-20 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
                                 required
                                 value={state.height}
                                 onChange={(e) => dispatch({ type: 'SET_HEIGHT', payload: e.target.value })}
