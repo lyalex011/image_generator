@@ -5,7 +5,7 @@ function Footer() {
     return ( 
     <footer className="bg-stone-100 rounded-lg shadow m-2 mt-8">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center ">© 2023 QuickPicGen. Powered by <a className="text-blue-600 dark:text-blue-500 hover:underline" href="https://picsum.photos/" className="hover:text-blue-500">Lorem Picsum API</a>. 
+          <span className="text-sm text-gray-500 sm:text-center ">© 2023 QuickPicGen. Powered by <a className="text-blue-600 dark:text-blue-500 hover:underline" href="https://picsum.photos/" >Lorem Picsum API</a>. 
         </span>
         <ul className="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-gray-500  sm:mt-0">
         <li>

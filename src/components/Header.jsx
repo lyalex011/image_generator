@@ -11,7 +11,7 @@ function Header() {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         
-                        <Link className="mb-0" to="/"><img className="w-auto h-10" src="src\assets\quickpiclogo2.png" alt="logo" /></Link>
+                        <Link className="mb-0" to="/"><img className="w-auto h-10" src="public\quickpiclogo2.png" alt="logo" /></Link>
                         
                         <div className="md:hidden">
                             <button
