@@ -10,9 +10,9 @@ function About() {
               <div className="mb-6 md:mb-0 ">
                 <h2 className="mb-6 text-3xl font-bold">About</h2>
         
-                <p className="text-neutral-500 dark:text-neutral-300 pr-12">
+                <p className="text-neutral-500  pr-12">
                   
-                  At QuickPic Generator, we bring you a delightful experience of discovering and generating unique and stylish images for all your creative needs. Our website harnesses the power of the <a className="text-blue-600 dark:text-blue-500 hover:underline" href="https://picsum.photos/">Lorem Picsum API</a>, which utilizes the vast repository of <a className="text-blue-600 dark:text-blue-500 hover:underline" href="https://unsplash.com/">Unsplash.com's</a> captivating images. Embrace your creativity with our intuitive customization options. You have the power to choose the dimensions that best fit your project, from thumbnails to high-resolution masterpieces. Amplify the visual appeal by adding stunning effects like black and white or vibrant color, allowing you to set the mood for your designs.
+                  At QuickPic Generator, we bring you a delightful experience of discovering and generating unique and stylish images for all your creative needs. Our website harnesses the power of the <a className="text-blue-600  hover:underline" href="https://picsum.photos/">Lorem Picsum API</a>, which utilizes the vast repository of <a className="text-blue-600  hover:underline" href="https://unsplash.com/">Unsplash.com's</a> captivating images. Embrace your creativity with our intuitive customization options. You have the power to choose the dimensions that best fit your project, from thumbnails to high-resolution masterpieces. Amplify the visual appeal by adding stunning effects like black and white or vibrant color, allowing you to set the mood for your designs.
                   
                 </p>
               </div>
