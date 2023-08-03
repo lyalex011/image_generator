@@ -64,6 +64,10 @@ function Header() {
                             <li >
                             <Link className="mr-10 font-medium hover:text-blue-500" to="/photolibrary">All photos</Link>
                             </li>
+                            <li>
+                            <Link className="font-medium hover:text-blue-500" to="/about">About</Link>
+                            </li>
+                            
                             
                         </ul>
                     </div>
