@@ -6,14 +6,14 @@ function Header() {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <nav className="w-full bg-white shadow-lg top-0 sticky z-40">
+        <nav className="w-full bg-white shadow-lg top-0 fixed  z-40">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 z-40">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         
                         <Link className="mb-0" to="/"><img className="w-auto h-10" src="/quickpiclogo2.png" alt="logo" /></Link>
                         
-                        <div className="md:hidden z-40">
+                        <div className="md:hidden z-40 ">
                             <button
                                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
                                 onClick={() => setNavbar(!navbar)}
@@ -53,7 +53,7 @@ function Header() {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mx-4 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 ${
+                        className={`flex-1 justify-self-center pb-3 mx-4 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 top-0 ${
                             navbar ? "block" : "hidden"
                         }`}
                     >

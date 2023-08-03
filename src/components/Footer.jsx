@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return ( 
-    <footer className="bg-stone-100 rounded-lg shadow m-2 mt-8">
+    <footer className="bg-stone-100 rounded-lg shadow m-2 mt-16">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-500 sm:text-center ">© 2023 QuickPicGen. Powered by <a className="text-blue-600 dark:text-blue-500 hover:underline" href="https://picsum.photos/" >Lorem Picsum API</a>. 
         </span>

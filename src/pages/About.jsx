@@ -3,7 +3,7 @@
 function About() {
     return ( 
        
-        <div className="flex  justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 mt-24 px-8 md:px-6">
+        <div className="flex  justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8 mt-16 px-8 md:px-6">
          
           <section className="mb-8 ">
             <div className="grid  gap-4 md:grid-cols-2">

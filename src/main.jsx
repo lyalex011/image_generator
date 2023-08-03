@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className='flex flex-col h-screen justify-between'>
+    <div className='flex flex-col h-screen justify-between mt-32 '>
     <App />
     </div>
     
