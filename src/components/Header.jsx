@@ -53,7 +53,7 @@ function Header() {
                 </div>
                 <div>
                     <div
-                        className={`flex-1 justify-self-center pb-3 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 ${
+                        className={`flex-1 justify-self-center pb-3 mx-4 mt-8 mb-8 md:block md:pb-0 md:mt-0 z-40 ${
                             navbar ? "block" : "hidden"
                         }`}
                     >
