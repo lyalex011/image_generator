@@ -4,7 +4,7 @@
 
 QuickPic Generator is a versatile and user-friendly web application that allows you to effortlessly generate stylish and captivating images using the Lorem Picsum API. With QuickPic Generator, you can access a library of stunning images sourced from Unsplash.com and customize them to suit your creative needs. Whether you're a designer, developer, content creator, or simply an image enthusiast, QuickPic Generator is your go-to tool for elevating your projects to the next level.
 
-Link to the web application:[QuickPic Generator](https://dapper-genie-c54.netlify.app/)
+Link to the web application: [QuickPic Generator](https://dapper-genie-c54.netlify.app/)
 
 ### Used technologies
 
@@ -21,7 +21,7 @@ From setting up the initial project structure to implementing interactive compon
 
 ### How to Use:
 
-Visit the QuickPic Generator website. [QuickPic Generator](https://dapper-genie-c54.netlify.app/)
+Visit the QuickPic Generator website: [QuickPic Generator](https://dapper-genie-c54.netlify.app/).
 Browse through the collection of stylish images presented on the library page.
 Customize your desired image by choosing dimensions, color effects, and blur settings.
 Click the "Download Image" button to save the image in JPG or WEBP format to your device.
