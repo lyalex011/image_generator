@@ -260,7 +260,7 @@ const handleCopy = () => {
                                     </div>
                                 </li>
 
-                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-r-lg first:mt-0 last:rounded-r-lg sm:-ml-px sm:mt-0 ">
+                                <li className="mt-0 inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-r-lg first:mt-0 last:rounded-r-lg sm:-ml-px sm:mt-0 ">
                                     <div className="relative flex items-start w-full">
                                     <div className="flex items-center h-5">
                                         <input 
