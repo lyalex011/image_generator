@@ -96,14 +96,14 @@ function Library({UseNewLId}) {
                     <button 
                         onClick={() => handleClick(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 mr-2 sm:mr-0 ">Previous</button>
+                        className="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 mr-2 sm:mr-0 hidden sm:block ">Previous</button>
                 </li>
 
                 {[...Array(totalPages)].map((_, index) => (
                     <li key={index}>
                         <button
                         
-                        className={`flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 hidden sm:block   ${
+                        className={`flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700   ${
                             currentPage === index+1 ? 'border-2 border-blue-500' : 'border-gray-300'
                           } `}
                         onClick={() => handleClick(index + 1)}
@@ -118,7 +118,7 @@ function Library({UseNewLId}) {
                     <button
                         onClick={() => handleClick(currentPage + 1)}
                         disabled={currentPage === totalPages}  
-                        className="flex items-center justify-center px-6 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 ">Next</button>
+                        className="flex items-center justify-center px-6 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 hidden sm:block  ">Next</button>
                 </li>
             </ul>
         </nav>
