@@ -8,7 +8,7 @@ function About() {
           <section className="mb-8 ">
             <div className="grid  gap-4 md:grid-cols-2">
               <div className="mb-6 md:mb-0 ">
-                <h2 className="mb-6 text-3xl font-bold">About</h2>
+                <h2 className="mb-6 text-4xl font-bold">About</h2>
         
                 <p className="text-neutral-500  pr-6 md:pr-12">
                   
