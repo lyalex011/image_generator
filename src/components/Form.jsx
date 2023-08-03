@@ -242,14 +242,14 @@ const handleCopy = () => {
                         <div className="flex flex-col items-center ">
                             <legend className="ml-2 text-sm font-medium text-gray-900 mt-4">File format</legend>
                             <ul className="flex flex-row mt-4">
-                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg ">
+                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-l-lg first:mt-0 last:rounded-l-lg sm:-ml-px sm:mt-0 ">
                                     <div className="relative flex items-start w-full">
                                     <div className="flex items-center h-5">
                                         <input 
                                         id="hs-horizontal-list-group-item-radio-1" 
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
-                                        className="border-gray-200 rounded-full " 
+                                        className="border-gray-200  " 
                                         checked={state.selectedOption === '.jpg'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.jpg' })} 
                                         />
@@ -260,14 +260,14 @@ const handleCopy = () => {
                                     </div>
                                 </li>
 
-                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg ">
+                                <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-r-lg first:mt-0 last:rounded-r-lg sm:-ml-px sm:mt-0 ">
                                     <div className="relative flex items-start w-full">
                                     <div className="flex items-center h-5">
                                         <input 
                                         id="hs-horizontal-list-group-item-radio-2" 
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
-                                        className="border-gray-200 rounded-full"
+                                        className="border-gray-200"
                                         checked={state.selectedOption === '.webp'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.webp' })} 
                                         
