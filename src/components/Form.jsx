@@ -250,7 +250,7 @@ const handleCopy = () => {
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
                                         className="border-gray-200 rounded-full peer/jpg" 
-                                        checked={state.selectedOption === '.jpg'}
+                                        defaultChecked={state.selectedOption === '.jpg'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.jpg' })} 
                                         />
                                     </div>
@@ -268,7 +268,7 @@ const handleCopy = () => {
                                         name="hs-horizontal-list-group-item-radio" 
                                         type="radio" 
                                         className="border-gray-200 rounded-full peer/webp"
-                                        checked={state.selectedOption === '.webp'}
+                                        defaultChecked={state.selectedOption === '.webp'}
                                         onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.webp' })} 
                                         
                                         />
@@ -291,7 +291,7 @@ const handleCopy = () => {
                                     className="hidden peer/jpg" 
                                     type="radio" 
                                     name="status"
-                                    checked={state.selectedOption === '.jpg'}
+                                    defaultChecked={state.selectedOption === '.jpg'}
                                     onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.jpg' })} 
                                     />
                                     
@@ -302,7 +302,7 @@ const handleCopy = () => {
                                     className="hidden ml-3 peer/webp" 
                                     type="radio" 
                                     name="status" 
-                                    checked={state.selectedOption === '.webp'}
+                                    defaultChecked={state.selectedOption === '.webp'}
                                     onChange={() => dispatch({ type: 'FILE_OPTION', payload: '.webp' })} 
                                     />
                                     
