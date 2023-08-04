@@ -3,7 +3,7 @@ import copy from "copy-to-clipboard";
 import PastResults from "./PastResults";
 import { UserContext } from "../App";
 import excludeNumbers from "./ExcludeNumbers";
-import { useRef } from "react";
+
 
 
 const formReducer = (state, action) => {
@@ -32,7 +32,7 @@ const formReducer = (state, action) => {
 function Form() {
 
 let used_id = useContext(UserContext)
-const imageRef = useRef(null);
+
 
   const initialState = {
     width: '300',
