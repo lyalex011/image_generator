@@ -192,7 +192,7 @@ const handleCopy = () => {
                         <div className="flex flex-row justify-center gap-4 mb-6">
                             
                             <div className="flex flex-row gap-4">
-                                <label htmlFor="small-input" className="block mt-1 text-sm font-medium text-gray-900 ">Width:</label>
+                                <label htmlFor="small-input" className="flex items-center text-sm font-medium text-gray-900 ">Width:</label>
                                 <input 
                                 type="number" 
                                 id="small-input" 
@@ -204,7 +204,7 @@ const handleCopy = () => {
                                 
                             </div>
                             <div className="flex flex-row gap-4">
-                                <label htmlFor="small-input" className="block mt-1 text-sm font-medium text-gray-900 ">Height:</label>
+                                <label htmlFor="small-input" className="flex items-center text-sm font-medium text-gray-900 ">Height:</label>
                                 <input type="number" 
                                 id="small-input" 
                                 className="block w-20 p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 " 
